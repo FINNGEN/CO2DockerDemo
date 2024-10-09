@@ -1,0 +1,13 @@
+Package: shinyApps
+Title: CO2DockerDemo
+Version: 1.0.0
+Authors@R: 
+    person("Javier", "Gracia-Tabuenca", , "javier.graciatabuenca@tuni.fi", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2455-0598"))
+Description: Project to manage the shiny apps in CO2Docker
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Language: en
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.0.0
