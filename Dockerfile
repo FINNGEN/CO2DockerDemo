@@ -38,18 +38,12 @@ RUN chmod -R 777 /eunomiaDatabases
 COPY shinyApps/apps/CohortOperations2_app.R /srv/shiny-server/co2/app.R
 COPY shinyApps/apps/CO2AnalysisModulesViewer_app.R /srv/shiny-server/co2analysis/app.R
 
-# drivers should be in the same path as shiny apps,
-# otherwiser shiny server will not be able to access them
-COPY ./bigquery /bigquery
-RUN mkdir -p /srv/shiny-server/jdbc_drivers
-RUN unzip /bigquery/bq_drivers_1.2.14.zip -d /srv/shiny-server/jdbc_drivers
-
 # shiny apps confgiuration
 COPY shinyApps/shiny-server.conf /etc/shiny-server/shiny-server.conf
 
 # default configs
 # choose mode for docker between
-# 'Eunomia' or 'AtlasDevelopment' or 'Sandbox'
+# 'Eunomia' 
 ENV CO2_CONFIG_MODE='Eunomia'
 ENV DATABASECONNECTOR_JAR_FOLDER='/srv/shiny-server/jdbc_drivers'
 ENV CO2_CONFIG_PATH='/config'
@@ -60,30 +54,6 @@ RUN touch /srv/shiny-server/co2/errorReportSql.txt && chmod 777 /srv/shiny-serve
 # Enable Logging from stdout
 ENV SHINY_LOG_STDOUT=1
 ENV SHINY_LOG_STDERR=1
-
-# Set BUILD_TYPE=development to update the CohortOperations2 and CO2AnalysisModules without having to update renv.lock
-ARG BUILD_TYPE=production
-# if BUILD_TYPE=development, the following two arguments are used to specify the branch to be used for the CohortOperations2 and CO2AnalysisModules
-# see ?renv::install for syntax
-ARG CO2_BUILD_POINT=FINNGEN/CohortOperations2@development
-ARG CO2ANALYISMODULES_BUILD_POINT=FINNGEN/CO2AnalysisModules@development
-
-
-# dummy arg to bust cache
-ARG CACHE_BUST=1
-
-RUN --mount=type=secret,id=build_github_pat \
-  if [ "$BUILD_TYPE" = "development" ]; then \
-  	cp /usr/local/lib/R/etc/Renviron /tmp/Renviron \
-    && echo "GITHUB_PAT=$(cat /run/secrets/build_github_pat)" >> /usr/local/lib/R/etc/Renviron \
-    && Rscript -e 'renv::install("'$CO2_BUILD_POINT'", lock = TRUE)' \
-    && Rscript -e 'renv::install("'$CO2ANALYISMODULES_BUILD_POINT'", lock = TRUE)' \
-    # TEMP avoid updating the following packages
-    && Rscript -e 'renv::install("dbplyr@2.4.0", lock = TRUE)' \
-    && Rscript -e 'renv::install("FeatureExtraction@3.6.0", lock = TRUE)' \
-    # END TEMP
-    && cp /tmp/Renviron /usr/local/lib/R/etc/Renviron;\
-  fi
 
 # TEMP may be a better way
 RUN cp /renv.lock /srv/shiny-server/co2/renv.lock

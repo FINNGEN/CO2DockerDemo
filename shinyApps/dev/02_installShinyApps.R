@@ -10,4 +10,5 @@ renv::install("dbplyr@2.4.0", prompt = FALSE)
 renv::install("FeatureExtraction@3.6.0", prompt = FALSE)
 
 # save in renv.lock
-renv::snapshot()
+renv::snapshot(type = "all")
+

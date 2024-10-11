@@ -6,6 +6,7 @@ install.packages("renv")
 
 ## activate renv and install usethis
 renv::init()
+renv::activate()
 renv::install("usethis")
 
 
