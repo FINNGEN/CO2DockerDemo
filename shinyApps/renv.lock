@@ -310,9 +310,9 @@
     },
     "FeatureExtraction": {
       "Package": "FeatureExtraction",
-      "Version": "3.6.0",
+      "Version": "3.7.1",
       "Source": "Repository",
-      "Repository": "RSPM",
+      "Repository": "CRAN",
       "Requirements": [
         "Andromeda",
         "DBI",
@@ -331,7 +331,7 @@
         "readr",
         "rlang"
       ],
-      "Hash": "4f882d704b9ebfcff7ee4333bb334faa"
+      "Hash": "dffa1221d9ea1708bd3b349fa8a43ca1"
     },
     "FinnGenUtilsR": {
       "Package": "FinnGenUtilsR",
