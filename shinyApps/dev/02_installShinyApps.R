@@ -4,6 +4,7 @@
 
 renv::install("FINNGEN/CohortOperations2", prompt = FALSE)
 renv::install("FINNGEN/CO2AnalysisModules", prompt = FALSE)
+renv::install("FINNGEN/HadesAnalysisModules", prompt = FALSE)
 
 # Here resinstall some packages to rewrite dependencies
 renv::install("dbplyr@2.4.0", prompt = FALSE)

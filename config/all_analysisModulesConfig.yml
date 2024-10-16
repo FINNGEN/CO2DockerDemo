@@ -26,4 +26,11 @@ timeCodeWAS_CO2AnalysisModules:
   mod_analysisSettings_server: CO2AnalysisModules::mod_analysisSettings_timeCodeWAS_server
   fct_executeAnalysis: CO2AnalysisModules::execute_timeCodeWAS
   url_visualiseResults: http://localhost:3838/co2analysis/?pathToResultsDatabase=
+CohortDiagnostics_HadesAnalysisModules:
+  analysisName: "CohortDiagnostics"
+  icon: "stethoscope"
+  mod_analysisSettings_ui: HadesAnalysisModules::mod_analysisSettings_CohortDiagnostics_ui
+  mod_analysisSettings_server: HadesAnalysisModules::mod_analysisSettings_CohortDiagnostics_server
+  fct_executeAnalysis: HadesAnalysisModules::execute_CohortDiagnostics
+  url_visualiseResults: http://localhost:3837/hadesanalysis/?analysisType=CohortDiagnostics&pathToResultsDatabase=
 
