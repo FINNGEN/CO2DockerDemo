@@ -310,9 +310,14 @@
     },
     "FeatureExtraction": {
       "Package": "FeatureExtraction",
-      "Version": "3.7.1",
-      "Source": "Repository",
-      "Repository": "CRAN",
+      "Version": "3.7.2",
+      "Source": "GitHub",
+      "RemoteType": "github",
+      "RemoteHost": "api.github.com",
+      "RemoteUsername": "OHDSI",
+      "RemoteRepo": "FeatureExtraction",
+      "RemoteRef": "main",
+      "RemoteSha": "437570aa6a955486f9a4ab5917d64ac857971ed4",
       "Requirements": [
         "Andromeda",
         "DBI",
@@ -331,7 +336,7 @@
         "readr",
         "rlang"
       ],
-      "Hash": "dffa1221d9ea1708bd3b349fa8a43ca1"
+      "Hash": "f482fd844f7c3ae7d58dfac3c4ecfa6d"
     },
     "FinnGenUtilsR": {
       "Package": "FinnGenUtilsR",
@@ -383,7 +388,7 @@
       "RemoteUsername": "FINNGEN",
       "RemoteRepo": "HadesAnalysisModules",
       "RemoteRef": "master",
-      "RemoteSha": "eb8cef1953a149a42b4b7c250e748df5daa9bf96",
+      "RemoteSha": "9db29e4461b1d80a4b02e69f96a36ff68ef012ea",
       "Requirements": [
         "CohortDiagnostics",
         "DatabaseConnector",
@@ -403,7 +408,7 @@
         "tidyr",
         "yaml"
       ],
-      "Hash": "ef5e61f708afeb25b6143b839a577242"
+      "Hash": "ee527c2545860edcb138dc3440f365a6"
     },
     "HadesExtras": {
       "Package": "HadesExtras",
@@ -506,14 +511,14 @@
     },
     "OhdsiShinyModules": {
       "Package": "OhdsiShinyModules",
-      "Version": "3.1.0",
+      "Version": "3.1.1",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteHost": "api.github.com",
       "RemoteUsername": "OHDSI",
       "RemoteRepo": "OhdsiShinyModules",
       "RemoteRef": "main",
-      "RemoteSha": "7502b6319ad135ff4827da63b16a3ed4b8865d8d",
+      "RemoteSha": "1b4cf35bd3341ce6aea5b3775a698804ef0a78a5",
       "Requirements": [
         "CirceR",
         "DT",
@@ -553,7 +558,7 @@
         "tidyselect",
         "tippy"
       ],
-      "Hash": "c3c075ee308dea8bdedc3964e94f2c54"
+      "Hash": "31d76464b1c9f5564b259d052c29e938"
     },
     "ParallelLogger": {
       "Package": "ParallelLogger",
