@@ -37,13 +37,14 @@ RUN chmod -R 777 /eunomiaDatabases
 # copy app files
 COPY shinyApps/apps/CohortOperations2_app.R /srv/shiny-server/co2/app.R
 COPY shinyApps/apps/CO2AnalysisModulesViewer_app.R /srv/shiny-server/co2analysis/app.R
+COPY shinyApps/apps/HadesAnalysisModulesViewer_app.R /srv/shiny-server/hadesanalysis/app.R
 
 # shiny apps confgiuration
 COPY shinyApps/shiny-server.conf /etc/shiny-server/shiny-server.conf
 
 # default configs
 # choose mode for docker between
-# 'Eunomia' 
+# 'Eunomia'
 ENV CO2_CONFIG_MODE='Eunomia'
 ENV DATABASECONNECTOR_JAR_FOLDER='/srv/shiny-server/jdbc_drivers'
 ENV CO2_CONFIG_PATH='/config'
@@ -58,5 +59,6 @@ ENV SHINY_LOG_STDERR=1
 # TEMP may be a better way
 RUN cp /renv.lock /srv/shiny-server/co2/renv.lock
 
-EXPOSE 8787
-EXPOSE 8788
+EXPOSE 3839
+EXPOSE 3838
+EXPOSE 3837
